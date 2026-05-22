@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Suite Completa - SauceDemo" verbose="1" parallel="false">
+
+    <parameter name="navegador" value="chrome"/>
+
+    <test name="Pruebas de Login">
+        <parameter name="navegador" value="chrome"/>
+        <classes>
+            <class name="com.saucedemo.pruebas.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Pruebas de Carrito">
+        <parameter name="navegador" value="chrome"/>
+        <classes>
+            <class name="com.saucedemo.pruebas.CarritoTest"/>
+        </classes>
+    </test>
+
+    <test name="Prueba API MercadoLibre">
+        <classes>
+            <class name="com.saucedemo.pruebas.MercadoLibreApiTest"/>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="com.saucedemo.utilidades.EscuchadorDePruebas"/>
+    </listeners>
+
+</suite>

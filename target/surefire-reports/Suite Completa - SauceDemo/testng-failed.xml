@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite Completa - SauceDemo]" guice-stage="DEVELOPMENT" verbose="0">
+  <parameter name="navegador" value="chrome"/>
+  <listeners>
+    <listener class-name="com.saucedemo.utilidades.EscuchadorDePruebas"/>
+  </listeners>
+  <test thread-count="5" name="Pruebas de Login(failed)" verbose="0">
+    <parameter name="navegador" value="chrome"/>
+    <classes>
+      <class name="com.saucedemo.pruebas.LoginTest">
+        <methods>
+          <include name="configurarAntesDeLaPrueba"/>
+          <include name="loginFalloIntencional"/>
+          <include name="limpiarDespuesDeLaPrueba"/>
+        </methods>
+      </class> <!-- com.saucedemo.pruebas.LoginTest -->
+    </classes>
+  </test> <!-- Pruebas de Login(failed) -->
+</suite> <!-- Failed suite [Suite Completa - SauceDemo] -->
