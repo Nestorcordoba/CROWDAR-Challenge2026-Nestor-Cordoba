@@ -5,6 +5,8 @@ import com.saucedemo.utilidades.GestorReportes;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 /**
@@ -17,6 +19,23 @@ import org.testng.annotations.Test;
 public class MercadoLibreApiTest {
 
     private final GestorConfiguracion configuracion = GestorConfiguracion.obtenerInstancia();
+
+    /**
+     * Inicializa el reporte si se corre la clase directamente (sin testng.xml).
+     * Cuando corre via suite, el @BeforeSuite ya lo inicializo y esta condicion no aplica.
+     */
+    @BeforeClass
+    public void inicializarReporteSiEsNecesario() {
+        GestorReportes.inicializarSiEsNecesario();
+    }
+
+    /**
+     * Guarda el reporte al finalizar si se corre la clase directamente.
+     */
+    @AfterClass
+    public void finalizarReporte() {
+        GestorReportes.finalizar();
+    }
 
     // ════════════════════════════════════════════════════════════
     // PRUEBA 1: EL ENDPOINT RESPONDE CON CODIGO 200 Y CONTIENE DATOS

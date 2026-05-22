@@ -22,6 +22,16 @@ public class GestorReportes {
     private static final ThreadLocal<ExtentTest> testActual = new ThreadLocal<>();
 
     /**
+     * Inicializa el reporte solo si todavia no fue inicializado.
+     * Util cuando se corre una clase de test directamente sin pasar por el @BeforeSuite de la suite.
+     */
+    public static synchronized void inicializarSiEsNecesario() {
+        if (reporte == null) {
+            inicializar();
+        }
+    }
+
+    /**
      * Inicializa el sistema de reportes. Llamar una sola vez al inicio de la suite.
      */
     public static void inicializar() {
