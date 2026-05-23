@@ -38,7 +38,7 @@ Agregá al PATH:
 
 ## Instalación
 
-1. Clonar o descomprimir el proyecto
+1. Clonar o descomprimir el proyecto alojado en GitHub https://github.com/Nestorcordoba/CROWDAR-Challenge2026-Nestor-Cordoba
 2. Abrir una terminal en la carpeta raíz del proyecto (donde está el `pom.xml`)
 3. Descargar las dependencias:
 
