@@ -18,20 +18,20 @@ public class EscuchadorDePruebas implements ITestListener {
 
     @Override
     public void onStart(ITestContext contexto) {
-        System.out.println("\n╔══════════════════════════════════════╗");
+        System.out.println("\n══════════════════════════════════════");
         System.out.println("║  INICIANDO SUITE: " + contexto.getName());
-        System.out.println("╚══════════════════════════════════════╝\n");
+        System.out.println("═════════════════════════════════════\n");
         GestorReportes.inicializar();
     }
 
     @Override
     public void onFinish(ITestContext contexto) {
-        System.out.println("\n╔══════════════════════════════════════╗");
+        System.out.println("\n══════════════════════════════════════");
         System.out.println("║  SUITE FINALIZADA: " + contexto.getName());
         System.out.println("║  Pasadas:  " + contexto.getPassedTests().size());
         System.out.println("║  Fallidas: " + contexto.getFailedTests().size());
         System.out.println("║  Omitidas: " + contexto.getSkippedTests().size());
-        System.out.println("╚══════════════════════════════════════╝\n");
+        System.out.println("═════════════════════════════════════\n");
         GestorReportes.finalizar();
     }
 
@@ -39,7 +39,7 @@ public class EscuchadorDePruebas implements ITestListener {
     public void onTestStart(ITestResult resultado) {
         String nombre = resultado.getMethod().getMethodName();
         String descripcion = resultado.getMethod().getDescription();
-        System.out.println("\n▶ Iniciando: " + nombre);
+        System.out.println("\nIniciando: " + nombre);
 
         GestorReportes.crearPrueba(
             nombre,
@@ -51,7 +51,7 @@ public class EscuchadorDePruebas implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult resultado) {
-        System.out.println("✔ PASS: " + resultado.getMethod().getMethodName());
+        System.out.println("PASS: " + resultado.getMethod().getMethodName());
         GestorReportes.registrarPasoExitoso(
             "Prueba finalizada correctamente: " + resultado.getMethod().getMethodName()
         );
@@ -62,7 +62,7 @@ public class EscuchadorDePruebas implements ITestListener {
         String nombre = resultado.getMethod().getMethodName();
         Throwable error = resultado.getThrowable();
 
-        System.out.println("✘ FAIL: " + nombre);
+        System.out.println("FAIL: " + nombre);
         if (error != null) System.out.println("  Causa: " + error.getMessage());
 
         // Guarda la captura como archivo en /capturas
@@ -81,7 +81,7 @@ public class EscuchadorDePruebas implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult resultado) {
-        System.out.println("⏭ SKIP: " + resultado.getMethod().getMethodName());
+        System.out.println("SKIP: " + resultado.getMethod().getMethodName());
         GestorReportes.registrarOmitida(
             "Prueba omitida: " + resultado.getMethod().getMethodName()
         );
